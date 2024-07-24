@@ -1,4 +1,7 @@
-@import "index", "font", "basic", "layout", "classes"
+---
+---
+
+@import index, font, basic, layout, classes
 
 @media (min-width: 40em)
   body > header, body > article, body > footer
@@ -23,24 +26,3 @@ body > footer
   box-shadow: 0 0 .6em rgba($dark, 0.04) inset
   border-top: 1px solid reduce(14)
   opacity: .9
-
-// Add this at the end of your index.sass file or in the appropriate section
-nav
-  font-size: 1.2em // Adjust the font size as needed
-  margin: 0 auto
-  padding: 1em 0
-
-nav a
-  display: block
-  margin: 0
-  padding: .5em 2.25em
-  font-size: 1.2em // Adjust the font size as needed
-
-nav a:hover, nav a.selected
-  background: lighten($dark, 2%)
-  text-decoration: inherit
-
-.nav-container
-  max-width: 80% // Adjust the width as needed
-  margin: 0 auto
-  padding: 0 1em // Adjust the padding as needed
