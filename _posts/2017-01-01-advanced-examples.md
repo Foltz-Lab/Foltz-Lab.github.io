@@ -1,5 +1,5 @@
 ---
-title:  "Advanced examples"
+title:  "Our Team"
 mathjax: true
 /*layout: post*/
 categories: media
