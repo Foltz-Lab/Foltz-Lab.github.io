@@ -5,7 +5,7 @@ mathjax: true
 categories: media
 ---
 
-![Swiss Alps](https://raw.githubusercontent.com/VedaVangala/VedaVangala.github.io/main/lab_mem.jpg)
+![Swiss Alps](https://raw.githubusercontent.com/VedaVangala/VedaVangala.github.io/main/lab_mem.jpg){: .image-resize}
 
 
 
