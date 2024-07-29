@@ -1,7 +1,44 @@
+
 ---
-layout: default
 title: "Publications"
+layout: page
 ---
 
 <h1>Publications</h1>
-<p>Content for publications goes here...</p>
+<div id="publications-container"></div>
+
+<script>
+  async function fetchRSSFeed() {
+    const rssUrl = 'https://profiles.wustl.edu/en/persons/jennifer-foltz/publications/?format=rss';
+    try {
+      const response = await fetch(rssUrl);
+      const rssText = await response.text();
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(rssText, "text/xml");
+
+      const items = xmlDoc.querySelectorAll("item");
+      const container = document.getElementById("publications-container");
+
+      items.forEach(item => {
+        const title = item.querySelector("title").textContent;
+        const link = item.querySelector("link").textContent;
+        const description = item.querySelector("description").textContent;
+        const pubDate = item.querySelector("pubDate").textContent;
+
+        const publicationHTML = `
+          <div class="publication">
+            <h2><a href="${link}" target="_blank">${title}</a></h2>
+            <p>${description}</p>
+            <p><small>Published on: ${new Date(pubDate).toLocaleDateString()}</small></p>
+          </div>
+        `;
+
+        container.innerHTML += publicationHTML;
+      });
+    } catch (error) {
+      console.error('Error fetching RSS feed:', error);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', fetchRSSFeed);
+</script>
