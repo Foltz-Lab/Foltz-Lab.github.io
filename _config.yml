@@ -20,7 +20,7 @@ navigation:                # accepts {file, title, url, icon, sidebaricon}
   - {file: "README.md"}
   - {file: "team.html", title: "Team"}
   - {file: "research.html", title: "Research"}
-  - {file: "publications.html", title: "Publications"}
+  - {file: "_includes\publications.html", title: "Publications"}
   
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
