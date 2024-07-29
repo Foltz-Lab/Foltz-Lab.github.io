@@ -34,3 +34,7 @@ comments:
 
 plugins:
  - jekyll-feed
+
+feed:
+  url: "https://profiles.wustl.edu/en/persons/jennifer-foltz/publications/?format=rss" # Replace with the actual RSS feed URL
+
