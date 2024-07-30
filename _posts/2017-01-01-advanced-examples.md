@@ -5,8 +5,11 @@ mathjax: true
 categories: media
 ---
 
-![Swiss Alps](https://raw.githubusercontent.com/VedaVangala/VedaVangala.github.io/main/lab_mem.jpg){: style="width: 50%; height: 50%;" }
-
+<div style="text-align: center;">
+  <img src="https://raw.githubusercontent.com/VedaVangala/VedaVangala.github.io/main/lab_mem.jpg" 
+       alt="Swiss Alps" 
+       style="width: 50%; height: 50%;">
+</div>
 
 
 ## MathJax
