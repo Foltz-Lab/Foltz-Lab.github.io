@@ -9,7 +9,7 @@ $dark: #212228 !default
 $light: #ffffff !default
 
 // Existing function
-@function reduce ($percent)
+@function reduce($percent)
   @return rgba(mix($dark, $light), $percent / 100)
 
 // New styles for team section
@@ -22,7 +22,7 @@ $light: #ffffff !default
 }
 
 .team-member {
-  flex: 1 1 calc(33% - 20px);
+  flex: 1 1 calc(33% - 20px); // Ensure valid `flex` shorthand values
   box-sizing: border-box;
   text-align: center;
   padding: 15px;
