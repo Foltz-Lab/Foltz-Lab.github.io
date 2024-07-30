@@ -12,40 +12,4 @@ $light: #ffffff !default
 @function reduce($percent)
   @return rgba(mix($dark, $light), $percent / 100)
 
-// New styles for team section
-.team {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
-}
-
-.team-member {
-  flex: 1 1 calc(33% - 20px); // Ensure valid `flex` shorthand values
-  box-sizing: border-box;
-  text-align: center;
-  padding: 15px;
-  border: 1px solid lighten($dark, 20%);
-  border-radius: 8px;
-  background: lighten($dark, 40%);
-  margin: 10px;
-}
-
-.team-member-image {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 10px;
-  border: 2px solid $link-color;
-}
-
-// Headings and text styling
-h1, h2 {
-  font-weight: $heading-weight;
-}
-
-p {
-  font-size: $font-size;
-}
+ 
