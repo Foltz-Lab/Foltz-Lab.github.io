@@ -13,24 +13,7 @@
   </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;nav style="position: relative;"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;!-- Full-width background image --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;img src="{{ '/images/Nk’.jpeg | relative_url }}" alt="Navigation Banner" style="width: 100%; height: auto; display: block;"&gt;</span></p>
+<p class="p1"><span class="s1">{%- for item in include.menu -%} {%- assign node = site.pages | where: "name", item.file | first -%} {%- assign url = item.url | default: node.url -%} {%- assign title = item.title | default: node.title -%} {%- if item.icon -%}{%- else -%}{{ title }}{%- endif -%} {%- endfor -%}</span></p>
 <p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;!-- Text-based navigation items --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;ul style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; gap: 50px;"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{%- for item in include.menu -%}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{%- assign node = site.pages | where: "name", item.file | first -%}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{%- assign url = item.url | default: node.url -%}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{%- assign title = item.title | default: node.title -%}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;li style="list-style: none;"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="{{ url }}" title="{{ title }}" style="color: white; font-size: 24px; font-weight: bold; text-decoration: none;"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>{{ title }}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{%- endfor -%}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/ul&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/nav&gt;</span></p>
 </body>
 </html>
