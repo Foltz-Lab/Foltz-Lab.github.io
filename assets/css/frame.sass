@@ -1,17 +1,28 @@
 html {
   background: lighten($dark, 70%);
-  padding: 0;  // Remove padding to allow full-width content
+  // No changes here
 }
 
-body > header, body > footer {
+body > header {
   background: lighten($dark, 5%);
   color: $light;
-  padding: 0;  // Remove padding for full-width content
+  padding: 0;  // Remove padding to ensure full-width header
+  margin: 0;  // Ensure no margin around header
+  width: 100%;  // Force the header to take full width
+}
+
+body > footer {
+  background: lighten($dark, 5%);
+  color: $light;
+  padding: 1.75em calc(22% - 6em);  // Keep footer padding
 }
 
 @media (min-width: 32em) {
-  body > header, body > article, body > footer {
-    padding: 0;  // Adjust this to remove any extra padding
+  body > header {
+    padding: 0;  // Keep header full-width on larger screens
+  }
+  body > footer {
+    padding: 1.75em calc(22% - 6em);  // Footer padding remains unchanged
   }
 }
 
@@ -19,10 +30,12 @@ body > header, body > footer {
   html {
     background: darken($dark, 4%);
   }
-  body > header, body > footer {
+  body > header {
     background: $dark;
+    width: 100%;  // Ensure dark mode respects full width
   }
-  body, body > header, body > footer {
-    box-shadow: 0 0 0 1px lighten($dark, 8%);
+  body > footer {
+    background: $dark;
+    padding: 1.75em calc(22% - 6em);  // Footer remains consistent
   }
 }
