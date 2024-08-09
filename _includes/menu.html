@@ -1,9 +1,9 @@
-<nav style="position: relative; width: 100%; max-width: 100%; margin: 0; padding: 0;">
+<nav style="position: relative; width: 100%; margin: 0; padding: 0;">
   <!-- Full-width background image -->
   <img src="https://raw.githubusercontent.com/VedaVangala/VedaVangala.github.io/main/images/NK.jpeg" alt="Navigation Banner" style="width: 100%; height: auto; display: block; margin: 0; padding: 0;">
 
   <!-- Text-based navigation items -->
-  <ul style="position: absolute; top: 0; right: 20px; display: flex; gap: 30px; margin: 0; padding: 10px;">
+  <ul style="position: absolute; top: 10px; right: 20px; display: flex; gap: 30px; margin: 0; padding: 10px;">
     {%- for item in include.menu -%}
       {%- assign node = site.pages | where: "name", item.file | first -%}
       {%- assign url = item.url | default: node.url -%}
@@ -17,4 +17,3 @@
     {%- endfor -%}
   </ul>
 </nav>
-
