@@ -39,23 +39,24 @@
   </div>
 
 {% if site.external %}
-<footer>
-  <div>
-    <a href="https://www.wustl.edu/" target="_blank">
+
+<footer style="background-color: black; padding: 20px; text-align: center; color: white;">
+  <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; max-width: 1200px; margin: 0 auto;">
+    <a href="https://www.wustl.edu/" target="_blank" style="margin-right: 20px;">
       <img src="https://raw.githubusercontent.com/VedaVangala/VedaVangala.github.io/main/images/WashU_logo.png" alt="WashU Logo" style="height: 60px; vertical-align: middle;">
     </a>
-    <div>
-      <p>Washington University in St. Louis</p>
-      <p>660 S Euclid Ave, St. Louis, MO 63110</p>
+    <div style="display: flex; flex-direction: column; text-align: center; margin-right: 20px;">
+      <p style="margin: 5px 0; font-size: 14px;">Washington University in St. Louis</p>
+      <p style="margin: 5px 0; font-size: 14px;">660 S Euclid Ave, St. Louis, MO 63110</p>
     </div>
-
-  <div>
-    {% if site.external %}
-      {% include menu.html menu=site.external %}
-    {% endif %}
-  </div>
+    <div style="display: flex; align-items: center; justify-content: center;">
+      {% if site.external %}
+        {% include menu.html menu=site.external %}
+      {% endif %}
+    </div>
   </div>
 </footer>
+
 
 {% endif %}
 
