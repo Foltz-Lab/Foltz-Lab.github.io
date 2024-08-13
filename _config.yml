@@ -38,15 +38,6 @@ plugins:
   - jekyll-remote-theme
   - jekyll-feed
 
-<footer>
-  <div class="footer-logo">
-    <img src="{{ 'images/WashU_logo.png' | relative_url }}" alt="Washington University in St. Louis">
-  </div>
-  <div class="footer-address">
-    <p>Washington University in St. Louis<br>
-    St. Louis, MO 63130<br>
-    Phone: (314) 935-5000</p>
-  </div>
-</footer>
+
 
 
