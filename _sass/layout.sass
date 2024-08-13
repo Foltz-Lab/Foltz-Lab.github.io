@@ -10,15 +10,16 @@ body > header, body > footer
   flex-wrap: wrap
   align-items: center
   justify-content: space-between
-
-body > header, body > article, body > footer
+  width: 100vw  // Ensure header and footer span the full viewport width
+  margin-left: calc(-50vw + 50%)  // Center the footer within the viewport
+  margin-right: calc(-50vw + 50%)
   padding: 1.5em
 
 .container
   width: 100%
   max-width: 1400px  // Adjust this value as needed
   margin: 0 auto
-  padding: 0 
+  padding: 0
 
 article header
   margin-bottom: 1.5em
@@ -40,7 +41,3 @@ nav a
   margin-right: calc(-50vw + 50%)
   max-width: none
   height: auto
-
-
-
-
