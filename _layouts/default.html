@@ -28,12 +28,10 @@
   {% endif %}
 </head>
 <body>
-<header style="background-color: #C62828; color: white;">
-  <div class="header-container" style="max-width: 1200px; margin: 0 auto; padding: 10px;">
-    <a href="{{ "/" | relative_url }}" class="title" style="color: white;">{{ site.title | escape }}</a>
+  <header>
+    <a href="{{ "/" | relative_url }}" class="title">{{ site.title | escape }}</a>
     {% include menu.html menu=pages %}
-  </div>
-</header>
+  </header>
 
 
   <!-- Added container div -->
