@@ -26,6 +26,12 @@
   {% else %}
     {% assign pages = site.pages | where_exp: "item", "item.title and item.sitemap != false" | sort: "order" %}
   {% endif %}
+  <style>
+    .nav-link {
+      padding: 0; /* No padding on all sides */
+      padding-bottom: 0.5em; /* Add padding only below */
+    }
+  </style>
 </head>
 <body>
 
