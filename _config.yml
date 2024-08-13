@@ -26,7 +26,7 @@ navigation:                # accepts {file, title, url, icon, sidebaricon}
   
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
-  - {title: Mail, icon: envelope, url: "mailto:jennifer.a.foltz@wustl.edus"}
+  - {title: Mail, icon: envelope, url: "mailto:jennifer.a.foltz@wustl.edu"}
   - {title: Github, icon: github, url: "https://github.com/Foltz-Lab"}
   - {title: Subscribe, icon: rss, url: "/feed.xml"}
 
@@ -37,4 +37,16 @@ comments:
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
+
+<footer>
+  <div class="footer-logo">
+    <img src="{{ '/assets/images/washu-logo.png' | relative_url }}" alt="Washington University in St. Louis">
+  </div>
+  <div class="footer-address">
+    <p>Washington University in St. Louis<br>
+    St. Louis, MO 63130<br>
+    Phone: (314) 935-5000</p>
+  </div>
+</footer>
+
 
