@@ -1,5 +1,6 @@
 title: "FOLTZ LAB"
 author: "Blog Author"
+description: ""  # This will make sure "FOLTZ LAB" does not appear if not needed
 permalink: /:title/
 lang: "en"
 excerpt_separator: "\n\n\n"
