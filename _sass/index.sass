@@ -12,4 +12,27 @@ $light: #ffffff !default
 @function reduce($percent)
   @return rgba(mix($dark, $light), $percent / 100)
 
- 
+ // Footer styles
+.footer-content
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 1rem
+  background-color: $light
+  border-top: 1px solid #ddd
+
+  .footer-logo
+    img
+      height: 30px
+      vertical-align: middle
+
+  .footer-address
+    text-align: center
+
+  .footer-social
+    a
+      color: $link-color
+      margin-left: 1rem
+      font-size: 1.2rem
+      text-decoration: none
+      display: inline-block

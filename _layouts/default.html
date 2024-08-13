@@ -40,18 +40,30 @@
 
 {% if site.external %}
 <footer>
-  <div class="footer-description">
-    <p>Washington University in St. Louis</p>
-    <p>660 S Euclid Ave, St. Louis, MO 63110</p>
-  </div>
-  {% include menu.html menu=site.external %}
   <div class="footer-content">
-    <a href="https://www.wustl.edu/" target="_blank">
-      <img src="https://raw.githubusercontent.com/VedaVangala/VedaVangala.github.io/main/images/WashU_logo.png" alt="WashU Logo" style="height: 50px; vertical-align: middle;">
+    <!-- Logo on the left -->
+    <a href="https://www.wustl.edu/" target="_blank" class="footer-logo">
+      <img src="https://raw.githubusercontent.com/VedaVangala/VedaVangala.github.io/main/images/WashU_logo.png" alt="WashU Logo" style="height: 30px; vertical-align: middle;">
     </a>
+
+    <!-- Address in the center -->
+    <div class="footer-address">
+      <p>Washington University in St. Louis</p>
+      <p>660 S Euclid Ave, St. Louis, MO 63110</p>
+    </div>
+
+    <!-- Social links on the right -->
+    <div class="footer-social">
+      {% for item in site.external %}
+        <a href="{{ item.url }}" title="{{ item.title }}" class="footer-icon">
+          <i class="fa fa-{{ item.icon }}"></i>
+        </a>
+      {% endfor %}
+    </div>
   </div>
 </footer>
 {% endif %}
+
 
 </body>
 </html>
