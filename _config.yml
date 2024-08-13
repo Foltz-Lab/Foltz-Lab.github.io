@@ -40,7 +40,7 @@ plugins:
 
 <footer>
   <div class="footer-logo">
-    <img src="{{ '/assets/images/washu-logo.png' | relative_url }}" alt="Washington University in St. Louis">
+    <img src="{{ 'images/WashU_logo.png' | relative_url }}" alt="Washington University in St. Louis">
   </div>
   <div class="footer-address">
     <p>Washington University in St. Louis<br>
