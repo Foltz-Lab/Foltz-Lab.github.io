@@ -43,7 +43,7 @@
   <div class="footer-content">
     <!-- Logo on the left -->
     <a href="https://www.wustl.edu/" target="_blank" class="footer-logo">
-      <img src="https://raw.githubusercontent.com/VedaVangala/VedaVangala.github.io/main/images/WashU_logo.png" alt="WashU Logo" style="height: 30px; vertical-align: middle;">
+      <img src="https://raw.githubusercontent.com/VedaVangala/VedaVangala.github.io/main/images/WashU_logo.png" alt="WashU Logo" style="height: 100px">
     </a>
 
     <!-- Address in the center -->
@@ -52,14 +52,7 @@
       <p>660 S Euclid Ave, St. Louis, MO 63110</p>
     </div>
 
-    <!-- Social links on the right -->
-    <div class="footer-social">
-      {% for item in site.external %}
-        <a href="{{ item.url }}" title="{{ item.title }}" class="footer-icon">
-          <i class="fa fa-{{ item.icon }}"></i>
-        </a>
-      {% endfor %}
-    </div>
+
   </div>
 </footer>
 {% endif %}
