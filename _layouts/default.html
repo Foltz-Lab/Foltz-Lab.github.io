@@ -40,20 +40,23 @@
 
 {% if site.external %}
 <footer>
+  <div class="footer-left">
+    {% if site.external %}
+      {% include menu.html menu=site.external %}
+    {% endif %}
+  </div>
 
-  {% include menu.html menu=site.external %}
-  
-  <div class="footer-content">
+  <div class="footer-right">
     <a href="https://www.wustl.edu/" target="_blank">
       <img src="https://raw.githubusercontent.com/VedaVangala/VedaVangala.github.io/main/images/WashU_logo.png" alt="WashU Logo" style="height: 60px; vertical-align: middle;">
     </a>
-
     <div class="footer-description">
       <p>Washington University in St. Louis</p>
       <p>660 S Euclid Ave, St. Louis, MO 63110</p>
     </div>
   </div>
 </footer>
+
 {% endif %}
 
 
