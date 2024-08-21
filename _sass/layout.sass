@@ -1,9 +1,6 @@
 body
-  padding: 0  // Remove any default padding from the body
-  margin: 0   // Remove any default margin from the body
   display: flex
   flex-direction: column
-  overflow-x: hidden  // Prevent horizontal scrolling
 
 article
   flex-grow: 1
@@ -13,13 +10,13 @@ body > header, body > footer
   flex-wrap: wrap
   align-items: center
   justify-content: space-between
-  margin-left: calc(-50vw + 50%)  // Center within the viewport
+  margin-left: calc(-50vw + 50%)  // Center the footer within the viewport
   margin-right: calc(-50vw + 50%)
   padding: 1.5em
 
 .container
   width: 100%
-  max-width: 1400px
+  max-width: 1400px  // Adjust this value as needed
   margin: 0 auto
   padding: 0
 
@@ -38,7 +35,8 @@ nav a
 
 // Full-width image styling
 .full-width-image
-  width: 100vw  // Make sure the image spans the full width of the viewport
-  height: auto  // Maintain the aspect ratio
-  margin: 0  // Remove any unwanted margins
-  display: block  // Ensures the image does not get any inline spacing
+  width: 100vw
+  margin-left: calc(-50vw + 50%)
+  margin-right: calc(-50vw + 50%)
+  max-width: none
+  height: auto
