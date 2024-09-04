@@ -29,9 +29,13 @@ article header h1
 
 nav
   margin: .5em -1.2em 
+  display: flex
+  flex-wrap: wrap
 
 nav a
   margin: .5em 1.2em
+  text-decoration: none
+  color: white
 
 // Full-width image styling
 .full-width-image
@@ -40,3 +44,18 @@ nav a
   margin-right: calc(-50vw + 50%)
   max-width: none
   height: auto
+
+// Mobile Styles
+@media (max-width: 768px)
+  body > header, body > footer
+    flex-direction: column
+    align-items: flex-start
+    padding: 10px 0
+
+  nav
+    flex-direction: column
+    width: 100%
+
+  nav a
+    margin: 10px 0
+    font-size: 18px  // Adjust font size for better readability on mobile
