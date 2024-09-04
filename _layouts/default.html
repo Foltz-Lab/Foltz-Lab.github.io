@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 <head>
   <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
   <meta charset="{{ site.encoding }}">
@@ -8,23 +8,23 @@
   <meta name="generator" content="Jekyll v{{ jekyll.version }}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   {% if site.show_frame %}
-  <link rel="stylesheet" href="{{ "/assets/css/frame.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/frame.css' | relative_url }}">
   {% else %}
-  <link rel="stylesheet" href="{{ "/assets/css/index.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/index.css' | relative_url }}">
   {% endif %}
-  {% if site.plugins contains "jekyll-feed" %}<link rel="alternate" href="{{ site.feed.path | default: "/feed.xml" | relative_url }}" type="application/atom+xml" title="{{ site.title }}">{% endif %}
+  {% if site.plugins contains 'jekyll-feed' %}<link rel="alternate" href="{{ site.feed.path | default: '/feed.xml' | relative_url }}" type="application/atom+xml" title="{{ site.title }}">{% endif %}
   {% if page.mathjax or site.mathjax %}
-  <link rel="stylesheet" href="{{ "/assets/katex/katex.min.css" | relative_url }}">
-  <script defer src="{{ "/assets/katex/katex.min.js" | relative_url }}"></script>
-  <script defer src="{{ "/assets/katex/contrib/auto-render.min.js" | relative_url }}" onload="renderMathInElement(document.body)"></script>
+  <link rel="stylesheet" href="{{ '/assets/katex/katex.min.css' | relative_url }}">
+  <script defer src="{{ '/assets/katex/katex.min.js' | relative_url }}"></script>
+  <script defer src="{{ '/assets/katex/contrib/auto-render.min.js' | relative_url }}" onload="renderMathInElement(document.body)"></script>
   {% endif %}
-  {% if site.comments.disqus_shortname and page.layout == "post" %}<script src="//{{ site.comments.disqus_shortname }}.disqus.com/embed.js" async></script>{% endif %}
-  {% if site.comments.isso_domain and page.layout == "post" %}<script data-isso="http://{{ site.comments.isso_domain }}" src="//{{ site.comments.isso_domain }}/js/embed.min.js"></script>{% endif %}
+  {% if site.comments.disqus_shortname and page.layout == 'post' %}<script src="//{{ site.comments.disqus_shortname }}.disqus.com/embed.js" async></script>{% endif %}
+  {% if site.comments.isso_domain and page.layout == 'post' %}<script data-isso="http://{{ site.comments.isso_domain }}" src="//{{ site.comments.isso_domain }}/js/embed.min.js"></script>{% endif %}
   {% if site.show_sidebar or site.sidebar %}{% include sidebar.html %}{% endif %}
   {% if site.navigation %}
     {% assign pages = site.navigation %}
   {% else %}
-    {% assign pages = site.pages | where_exp: "item", "item.title and item.sitemap != false" | sort: "order" %}
+    {% assign pages = site.pages | where_exp: 'item', 'item.title and item.sitemap != false' | sort: 'order' %}
   {% endif %}
 
   <style>
@@ -90,15 +90,14 @@
 <body>
   <header>
     <div style="width: 70%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-      <a href="{{ "/" | relative_url }}" class="title">{{ site.title | escape }}</a>
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <a href="{{ '/' | relative_url }}" class="title">{{ site.title | escape }}</a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
       <nav class="menu">
         {% include menu.html menu=pages %}
       </nav>
     </div>
   </header>
 
-  <!-- Added container div -->
   <div class="container">
     {{ content }}
   </div>
@@ -107,7 +106,7 @@
   <footer style="background-color: #333; padding: 20px; color: white;">
     <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1200px; margin: 0 auto;">
       <div style="display: flex; align-items: center;">
-        <a href="https://www.wustl.edu/" target="_blank" style="margin-right: 60px;">
+        <a href="https://www.wustl.edu/" target="_blank" rel="noopener noreferrer" style="margin-right: 60px;">
           <img src="https://raw.githubusercontent.com/Foltz-Lab/Foltz-Lab.github.io/main/images/WashU_logo.png" alt="WashU Logo" style="height: 150px;">
         </a>
         <div style="display: flex; flex-direction: column; text-align: left;">
@@ -128,10 +127,11 @@
   {% endif %}
 
   <script>
-    function toggleMenu() {
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
       var nav = document.querySelector('nav.menu');
       nav.classList.toggle('show');
-    }
+    });
   </script>
 </body>
 </html>
+
