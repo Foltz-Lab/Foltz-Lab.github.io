@@ -27,54 +27,66 @@
     {% assign pages = site.pages | where_exp: "item", "item.title and item.sitemap != false" | sort: "order" %}
   {% endif %}
 
+  <!-- Embedded CSS Styles -->
+  <style>
+    header {
+        height: auto; /* Let height adjust based on content */
+        padding: 10px 0; /* Add some padding for better spacing */
+        display: flex;
+        align-items: center;
+        background-color: #333;
+        color: white;
+    }
+
+    @media (max-width: 768px) {
+        header {
+            flex-direction: column; /* Stack elements vertically on smaller screens */
+            height: auto;
+            padding: 15px 0;
+        }
+        .title {
+            font-size: 18px; /* Reduce font size on mobile */
+        }
+    }
+  </style>
+
 </head>
 <body>
-
-
-  <header style="height: 50px; line-height: 60px; padding:0; background-color: #333; color: white; display: flex; align-items: center;">
+  <header>
     <div style="width: 70%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-    <a href="{{ "/" | relative_url }}" class="title" style="font-size: 24px;">{{ site.title | escape }}</a>
-    {% include menu.html menu=pages %}
+      <a href="{{ "/" | relative_url }}" class="title">{{ site.title | escape }}</a>
+      {% include menu.html menu=pages %}
     </div>
   </header>
-
-
 
   <!-- Added container div -->
   <div class="container">
     {{ content }}
   </div>
 
-{% if site.external %}
-
-<footer style="background-color: #333; padding: 20px; color: white;">
-  <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1200px; margin: 0 auto;">
-    <div style="display: flex; align-items: center;">
-      <a href="https://www.wustl.edu/" target="_blank" style="margin-right: 60px;">
-        <img src="https://raw.githubusercontent.com/Foltz-Lab/Foltz-Lab.github.io/main/images/WashU_logo.png" alt="WashU Logo" style="height: 150px;">
-      </a>
-      <div style="display: flex; flex-direction: column; text-align: left;">
-        <p style="margin: 5px 0; font-size: 18px;font-weight: bold;">Division of Oncology</p>
-        <p style="margin: 5px 0; font-size: 14px;">Section of Computational Biology</p>
-        <p style="margin: 5px 0; font-size: 14px;">Department of Medicine</p>
-        <p style="margin: 5px 0; font-size: 14px;">Mail Stop 8007-0057-06</p>
-        <p style="margin: 5px 0; font-size: 14px;">660 S Euclid Ave, St. Louis, MO 63110</p>
-        
+  {% if site.external %}
+  <footer style="background-color: #333; padding: 20px; color: white;">
+    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1200px; margin: 0 auto;">
+      <div style="display: flex; align-items: center;">
+        <a href="https://www.wustl.edu/" target="_blank" style="margin-right: 60px;">
+          <img src="https://raw.githubusercontent.com/Foltz-Lab/Foltz-Lab.github.io/main/images/WashU_logo.png" alt="WashU Logo" style="height: 150px;">
+        </a>
+        <div style="display: flex; flex-direction: column; text-align: left;">
+          <p style="margin: 5px 0; font-size: 18px;font-weight: bold;">Division of Oncology</p>
+          <p style="margin: 5px 0; font-size: 14px;">Section of Computational Biology</p>
+          <p style="margin: 5px 0; font-size: 14px;">Department of Medicine</p>
+          <p style="margin: 5px 0; font-size: 14px;">Mail Stop 8007-0057-06</p>
+          <p style="margin: 5px 0; font-size: 14px;">660 S Euclid Ave, St. Louis, MO 63110</p>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: center;">
+        {% if site.external %}
+          {% include menu.html menu=site.external %}
+        {% endif %}
       </div>
     </div>
-    <div style="display: flex; align-items: center; justify-content: center;">
-      {% if site.external %}
-        {% include menu.html menu=site.external %}
-      {% endif %}
-    </div>
-  </div>
-</footer>
-
-
-
-
-{% endif %}
-
+  </footer>
+  {% endif %}
 
 </body>
 </html>
