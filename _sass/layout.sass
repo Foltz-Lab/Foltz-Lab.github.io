@@ -1,3 +1,5 @@
+// Existing styles in layout.sass
+
 body
   display: flex
   flex-direction: column
@@ -53,9 +55,17 @@ nav a
     padding: 10px 0
 
   nav
+    display: none // Hide menu by default on mobile
     flex-direction: column
     width: 100%
+    background-color: #333
+    position: absolute
+    top: 60px // Adjust based on header height
+    left: 0
+
+  nav.show
+    display: flex // Show the menu when .show class is applied
 
   nav a
     margin: 10px 0
-    font-size: 18px  // Adjust font size for better readability on mobile
+    font-size: 18px // Adjust font size for better readability on mobile
