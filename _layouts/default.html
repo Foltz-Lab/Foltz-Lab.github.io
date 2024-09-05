@@ -28,6 +28,7 @@
   {% endif %}
 
   <style>
+    /* Header Styling */
     header {
       height: auto;
       padding: 10px 0;
@@ -38,51 +39,77 @@
       position: relative;
     }
 
-    .menu-toggle {
-      display: none;
-      background-color: #333;
-      color: white;
+    /* Toggle Button Styling */
+    .greedy-nav_toggle {
+      background: none;
       border: none;
-      padding: 10px;
       cursor: pointer;
       font-size: 24px;
+      color: white;
+      position: relative;
     }
 
-    nav {
+    .greedy-nav_toggle .navicon::before,
+    .greedy-nav_toggle .navicon::after {
+      content: "";
+      display: block;
+      background: white;
+      height: 3px;
+      width: 20px;
+      position: absolute;
+      left: 0;
+      transition: all 0.3s;
+    }
+
+    .greedy-nav_toggle .navicon::before {
+      top: 0;
+    }
+
+    .greedy-nav_toggle .navicon::after {
+      bottom: 0;
+    }
+
+    /* Navigation Menu Styling */
+    .hidden-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
       display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+      flex-direction: column;
     }
 
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
+    .hidden-links.hidden {
+      display: none;
+    }
 
-      nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #333;
+    .hidden-links .masthead.menu-item {
+      margin: 0;
+    }
+
+    .hidden-links .masthead.menu-item a {
+      padding: 10px;
+      text-align: center;
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+
+    .hidden-links .masthead.menu-item a:hover {
+      background-color: #555;
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+      .hidden-links {
         position: absolute;
         top: 60px; /* Adjust based on header height */
         left: 0;
+        width: 100%;
+        background-color: #333;
       }
 
-      nav.show {
+      .hidden-links.show {
         display: flex;
-      }
-
-      nav a {
-        padding: 10px;
-        text-align: center;
-        color: white;
-        text-decoration: none;
-        border-top: 1px solid #444;
-      }
-
-      nav a.selected {
-        background-color: #555;
       }
     }
   </style>
@@ -91,9 +118,18 @@
   <header>
     <div style="width: 70%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
       <a href="{{ '/' | relative_url }}" class="title">{{ site.title | escape }}</a>
-      <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
-      <nav class="menu">
-        {% include menu.html menu=pages %}
+      <button class="greedy-nav_toggle" type="button">
+        <span class="visually-hidden">Toggle menu</span>
+        <div class="navicon"></div>
+      </button>
+      <nav>
+        <ul class="hidden-links hidden">
+          <li class="masthead menu-item"><a href="/">Home</a></li>
+          <li class="masthead menu-item"><a href="/People/">People</a></li>
+          <li class="masthead menu-item"><a href="/research/">Research</a></li>
+          <li class="masthead menu-item"><a href="/publications/">Publications</a></li>
+          <li class="masthead menu-item"><a href="/col/">Collaborations</a></li>
+        </ul>
       </nav>
     </div>
   </header>
@@ -127,9 +163,13 @@
   {% endif %}
 
   <script>
-    document.querySelector('.menu-toggle').addEventListener('click', function() {
-      var nav = document.querySelector('nav.menu');
-      nav.classList.toggle('show');
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.querySelector('.greedy-nav_toggle');
+      const menu = document.querySelector('.hidden-links');
+
+      menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
     });
   </script>
 </body>
