@@ -93,7 +93,11 @@
       <a href="{{ '/' | relative_url }}" class="title">{{ site.title | escape }}</a>
       <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
       <nav class="menu">
-        {% include menu.html menu=pages %}
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="https://jfoltzlab.org/People/">People</a>
+        <a href="https://jfoltzlab.org/research/">Research</a>
+        <a href="https://jfoltzlab.org/publications/">Publications</a>
+        <a href="https://jfoltzlab.org/col/">Collaborations</a>
       </nav>
     </div>
   </header>
@@ -134,3 +138,4 @@
   </script>
 </body>
 </html>
+
