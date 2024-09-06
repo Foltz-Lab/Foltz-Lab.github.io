@@ -27,6 +27,8 @@
     {% assign pages = site.pages | where_exp: 'item', 'item.title and item.sitemap != false' | sort: 'order' %}
   {% endif %}
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <style>
     header {
       height: auto;
@@ -86,34 +88,61 @@
       }
     }
 
-    footer img {
-      height: 100px; /* Adjust size as needed */
-      margin-right: 20px; /* Space between logos */
+    footer {
+      background-color: #333;
+      padding: 20px;
+      color: white;
     }
 
     .footer-content {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
     }
 
-    .footer-left {
-      display: flex;
-      align-items: center;
+    .footer-logo, .footer-info, .footer-links {
+      margin-bottom: 20px;
     }
 
-    .footer-right {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    @media (min-width: 768px) {
+      .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .footer-logo, .footer-info, .footer-links {
+        flex: 1;
+        text-align: left;
+        margin-bottom: 0;
+      }
+      .footer-logo {
+        margin-right: 20px;
+      }
+      .footer-info {
+        margin: 0 20px;
+      }
+      .footer-links {
+        margin-top: 0;
+      }
+    }
+
+    .footer-links a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .footer-links a:hover {
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <header>
+  <header style="height: 80px; line-height: 60px; padding:0; background-color: #333; color: white; display: flex; align-items: center;">
     <div style="width: 70%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
       <a href="{{ '/' | relative_url }}" class="title">{{ site.title | escape }}</a>
       <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
@@ -132,27 +161,32 @@
   </div>
 
   {% if site.external %}
-  <footer style="background-color: #333; padding: 20px; color: white;">
+  <footer>
     <div class="footer-content">
-      <div class="footer-left">
-        <a href="https://www.wustl.edu/" target="_blank" rel="noopener noreferrer" style="margin-right: 60px;">
-          <img src="images/WashU_logo.png" alt="WashU Logo" style="height: 150px;">
+      <div class="footer-logo">
+        <a href="https://www.wustl.edu/" target="_blank" rel="noopener noreferrer">
+          <img src="images/WashU_logo.png" alt="WashU Logo" style="height: 100px; max-width: 100%;">
         </a>
-        <a href="https://siteman.wustl.edu/" target="_blank" rel="noopener noreferrer">
-          <img src="images/Siteman_cancer_center.png" alt="Siteman Cancer Center Logo">
-        </a>
-        <div style="display: flex; flex-direction: column; text-align: left;">
-          <p style="margin: 5px 0; font-size: 18px;font-weight: bold;">Division of Oncology</p>
-          <p style="margin: 5px 0; font-size: 14px;">Section of Computational Biology</p>
-          <p style="margin: 5px 0; font-size: 14px;">Department of Medicine</p>
-          <p style="margin: 5px 0; font-size: 14px;">Mail Stop 8007-0057-06</p>
-          <p style="margin: 5px 0; font-size: 14px;">660 S Euclid Ave, St. Louis, MO 63110</p>
-        </div>
       </div>
-      <div class="footer-right">
-        {% if site.external %}
-          {% include menu.html menu=site.external %}
-        {% endif %}
+      <div class="footer-logo">
+        <a href="https://siteman.wustl.edu/" target="_blank" rel="noopener noreferrer">
+          <img src="images/Siteman_cancer_center.png" alt="Siteman Logo" style="height: 100px; max-width: 100%;">
+        </a>
+      </div>
+      <div class="footer-info">
+        <p style="margin: 5px 0; font-size: 16px; font-weight: bold;">Division of Oncology</p>
+        <p style="margin: 5px 0; font-size: 14px;">Section of Computational Biology</p>
+        <p style="margin: 5px 0; font-size: 14px;">Department of Medicine</p>
+        <p style="margin: 5px 0; font-size: 14px;">Mail Stop 8007-0057-06</p>
+        <p style="margin: 5px 0; font-size: 14px;">660 S Euclid Ave, St. Louis, MO 63110</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:your-email@example.com" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
       </div>
     </div>
   </footer>
