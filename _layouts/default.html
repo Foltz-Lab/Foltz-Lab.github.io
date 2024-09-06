@@ -107,27 +107,28 @@
   </div>
 
   {% if site.external %}
-  <footer style="background-color: #333; padding:20px; color: white;">
-    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1200px; margin: 0 auto;">
-      <div style="display: flex; align-items: center;">
-        <a href="https://www.wustl.edu/" target="_blank" rel="noopener noreferrer" style="margin-right: 60px;">
-          <img src="https://raw.githubusercontent.com/Foltz-Lab/Foltz-Lab.github.io/main/images/WashU_logo.png" alt="WashU Logo" style="height: 150px;">
-        </a>
-        <div style="display: flex; flex-direction: column; text-align: left;">
-          <p style="margin: 5px 0; font-size: 18px;font-weight: bold;">Division of Oncology</p>
-          <p style="margin: 5px 0; font-size: 14px;">Section of Computational Biology</p>
-          <p style="margin: 5px 0; font-size: 14px;">Department of Medicine</p>
-          <p style="margin: 5px 0; font-size: 14px;">Mail Stop 8007-0057-06</p>
-          <p style="margin: 5px 0; font-size: 14px;">660 S Euclid Ave, St. Louis, MO 63110</p>
-        </div>
-      </div>
-      <div style="display: flex; align-items: center; justify-content: center;">
-        {% if site.external %}
-          {% include menu.html menu=site.external %}
-        {% endif %}
+<footer style="background-color: #333; padding: 20px; color: white;">
+  <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto;">
+    <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+      <a href="https://www.wustl.edu/" target="_blank" rel="noopener noreferrer" style="margin-bottom: 20px;">
+        <img src="https://raw.githubusercontent.com/Foltz-Lab/Foltz-Lab.github.io/main/images/WashU_logo.png" alt="WashU Logo" style="height: 100px; max-width: 100%;">
+      </a>
+      <div style="text-align: center;">
+        <p style="margin: 5px 0; font-size: 16px; font-weight: bold;">Division of Oncology</p>
+        <p style="margin: 5px 0; font-size: 14px;">Section of Computational Biology</p>
+        <p style="margin: 5px 0; font-size: 14px;">Department of Medicine</p>
+        <p style="margin: 5px 0; font-size: 14px;">Mail Stop 8007-0057-06</p>
+        <p style="margin: 5px 0; font-size: 14px;">660 S Euclid Ave, St. Louis, MO 63110</p>
       </div>
     </div>
-  </footer>
+    <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+      {% if site.external %}
+        {% include menu.html menu=site.external %}
+      {% endif %}
+    </div>
+  </div>
+</footer>
+
   {% endif %}
 
   <script>
