@@ -85,6 +85,47 @@
         background-color: #555;
       }
     }
+
+    footer {
+      background-color: #333;
+      padding: 20px;
+      color: white;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-logo, .footer-info, .footer-links {
+      margin-bottom: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .footer-logo, .footer-info, .footer-links {
+        flex: 1;
+        text-align: left;
+        margin-bottom: 0;
+      }
+      .footer-logo {
+        margin-right: 20px;
+      }
+      .footer-info {
+        margin: 0 20px;
+      }
+      .footer-links {
+        margin-top: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -107,54 +148,27 @@
   </div>
 
   {% if site.external %}
-<footer style="background-color: #333; padding: 20px; color: white;">
-  <div class="footer-content" style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto;">
-    <div class="footer-logo" style="display: flex; flex-direction: column; align-items: center; margin-bottom: 20px;">
-      <a href="https://www.wustl.edu/" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/Foltz-Lab/Foltz-Lab.github.io/main/images/WashU_logo.png" alt="WashU Logo" style="height: 100px; max-width: 100%;">
-      </a>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <a href="https://www.wustl.edu/" target="_blank" rel="noopener noreferrer">
+          <img src="https://raw.githubusercontent.com/Foltz-Lab/Foltz-Lab.github.io/main/images/WashU_logo.png" alt="WashU Logo" style="height: 100px; max-width: 100%;">
+        </a>
+      </div>
+      <div class="footer-info">
+        <p style="margin: 5px 0; font-size: 16px; font-weight: bold;">Division of Oncology</p>
+        <p style="margin: 5px 0; font-size: 14px;">Section of Computational Biology</p>
+        <p style="margin: 5px 0; font-size: 14px;">Department of Medicine</p>
+        <p style="margin: 5px 0; font-size: 14px;">Mail Stop 8007-0057-06</p>
+        <p style="margin: 5px 0; font-size: 14px;">660 S Euclid Ave, St. Louis, MO 63110</p>
+      </div>
+      <div class="footer-links">
+        {% if site.external %}
+          {% include menu.html menu=site.external %}
+        {% endif %}
+      </div>
     </div>
-    <div class="footer-info" style="text-align: center;">
-      <p style="margin: 5px 0; font-size: 16px; font-weight: bold;">Division of Oncology</p>
-      <p style="margin: 5px 0; font-size: 14px;">Section of Computational Biology</p>
-      <p style="margin: 5px 0; font-size: 14px;">Department of Medicine</p>
-      <p style="margin: 5px 0; font-size: 14px;">Mail Stop 8007-0057-06</p>
-      <p style="margin: 5px 0; font-size: 14px;">660 S Euclid Ave, St. Louis, MO 63110</p>
-    </div>
-    <div class="footer-links" style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
-      {% if site.external %}
-        {% include menu.html menu=site.external %}
-      {% endif %}
-    </div>
-  </div>
-
-  <style>
-    @media (min-width: 768px) {
-      .footer-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .footer-logo, .footer-info, .footer-links {
-        flex: 1;
-        text-align: left;
-      }
-      .footer-logo {
-        margin-bottom: 0;
-        margin-right: 20px;
-      }
-      .footer-info {
-        text-align: left;
-        margin: 0 20px;
-      }
-      .footer-links {
-        text-align: left;
-      }
-    }
-  </style>
-</footer>
-
-
+  </footer>
   {% endif %}
 
   <script>
@@ -165,4 +179,3 @@
   </script>
 </body>
 </html>
-
