@@ -28,7 +28,6 @@
   {% endif %}
 
   <style>
-    /* Header Styling */
     header {
       height: auto;
       padding: 10px 0;
@@ -39,74 +38,51 @@
       position: relative;
     }
 
-    /* Toggle Button Styling */
-    .greedy-nav_toggle {
-      background: none;
+    .menu-toggle {
+      display: none;
+      background-color: #333;
+      color: white;
       border: none;
+      padding: 10px;
       cursor: pointer;
       font-size: 24px;
-      color: white;
-      position: relative;
     }
 
-    .greedy-nav_toggle .navicon::before,
-    .greedy-nav_toggle .navicon::after {
-      content: "";
-      display: block;
-      background: white;
-      height: 3px;
-      width: 20px;
-      position: absolute;
-      left: 0;
-      transition: all 0.3s;
+    nav {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
     }
 
-    .greedy-nav_toggle .navicon::before {
-      top: 0;
-    }
-
-    .greedy-nav_toggle .navicon::after {
-      bottom: 0;
-    }
-
-    /* Dropdown Menu Styling */
-    .dropdown-menu {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      position: absolute;
-      top: 100%; /* Position below the button */
-      left: 0;
-      background-color: #333;
-      display: none;
-      width: 200px; /* Adjust width as needed */
-      z-index: 1000;
-    }
-
-    .dropdown-menu li {
-      border-top: 1px solid #444;
-    }
-
-    .dropdown-menu li a {
-      padding: 10px;
-      text-align: center;
-      color: white;
-      text-decoration: none;
-      display: block;
-    }
-
-    .dropdown-menu li a:hover {
-      background-color: #555;
-    }
-
-    /* Responsive Styling */
     @media (max-width: 768px) {
-      .greedy-nav_toggle {
+      .menu-toggle {
         display: block;
       }
 
       nav {
         display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        left: 0;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        padding: 10px;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+        border-top: 1px solid #444;
+      }
+
+      nav a.selected {
+        background-color: #555;
       }
     }
   </style>
@@ -115,17 +91,10 @@
   <header>
     <div style="width: 70%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
       <a href="{{ '/' | relative_url }}" class="title">{{ site.title | escape }}</a>
-      <button class="greedy-nav_toggle" aria-label="Toggle navigation menu">
-        <span class="visually-hidden">Toggle menu</span>
-        <div class="navicon"></div>
-        <ul class="dropdown-menu hidden">
-          <li><a href="/">Home</a></li>
-          <li><a href="/People/">People</a></li>
-          <li><a href="/research/">Research</a></li>
-          <li><a href="/publications/">Publications</a></li>
-          <li><a href="/col/">Collaborations</a></li>
-        </ul>
-      </button>
+      <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+      <nav class="menu">
+        {% include menu.html menu=pages %}
+      </nav>
     </div>
   </header>
 
@@ -158,23 +127,9 @@
   {% endif %}
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const toggleButton = document.querySelector('.greedy-nav_toggle');
-      const dropdownMenu = toggleButton.querySelector('.dropdown-menu');
-
-      toggleButton.addEventListener('click', function() {
-        // Toggle the visibility of the dropdown menu
-        dropdownMenu.classList.toggle('hidden');
-        toggleButton.classList.toggle('active');
-      });
-
-      // Optionally, close the dropdown if clicking outside
-      document.addEventListener('click', function(event) {
-        if (!toggleButton.contains(event.target)) {
-          dropdownMenu.classList.add('hidden');
-          toggleButton.classList.remove('active');
-        }
-      });
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      var nav = document.querySelector('nav.menu');
+      nav.classList.toggle('show');
     });
   </script>
 </body>
