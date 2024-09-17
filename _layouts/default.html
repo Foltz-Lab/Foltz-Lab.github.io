@@ -30,19 +30,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <style>
-    .title {
-      font-size: 36px; /* Adjust this value as needed */
-      font-weight: bold; /* Optional: Make the title bold */
-    }
     header {
-      height: 80px; 
-      line-height: 60px; 
-      padding: 0; 
-      background-color: #333; 
-      color: white; 
-      display: flex; 
+      height: auto;
+      padding: 10px 0;
+      display: flex;
       align-items: center;
+      background-color: #333;
+      color: white;
+      position: relative;
     }
+
     .menu-toggle {
       display: none;
       background-color: #333;
@@ -52,15 +49,18 @@
       cursor: pointer;
       font-size: 24px;
     }
+
     nav {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
     }
+
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
       }
+
       nav {
         display: none;
         flex-direction: column;
@@ -72,9 +72,11 @@
         max-height: 700px; /* Adjust this value as needed */
         overflow-y: auto; /* Enables vertical scrolling */
       }
+
       nav.show {
         display: flex;
       }
+
       nav a {
         padding: 3px;
         text-align: center;
@@ -82,17 +84,20 @@
         text-decoration: none;
         border-top: 1px solid #444;
       }
+
       nav a.selected {
         background-color: #555;
       }
     }
+
     footer {
       background-color: #333;
       padding: 20px;
       color: white;
       text-align: center;
-      justify-content: center; /* Fixed typo */
+      ustify-content: center;
     }
+
     .footer-content {
       display: flex;
       flex-direction: column;
@@ -103,12 +108,14 @@
       max-width: 1200px;
       margin: 0 auto;
     }
+
     .footer-logo, .footer-info, .footer-links {
       margin-bottom: 20px;
     }
+
     @media (min-width: 768px) {
       footer {
-        padding: 10px;
+      padding: 10px;
       }
       .footer-content {
         flex-direction: row;
@@ -130,19 +137,21 @@
         margin-top: 0;
       }
     }
+
     .footer-links a {
       color: white;
       margin: 0 10px;
       text-decoration: none;
       font-size: 30px;
     }
+
     .footer-links a:hover {
       color: #aaa;
     }
   </style>
 </head>
 <body>
-  <header>
+  <header style="height: 80px; line-height: 60px; padding:0; background-color: #333; color: white; display: flex; align-items: center;">
     <div style="width: 70%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
       <a href="{{ '/' | relative_url }}" class="title">{{ site.title | escape }}</a>
       <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
@@ -161,14 +170,14 @@
   </div>
 
   {% if site.external %}
-  <footer>
+  <footer style="background-color: #333; padding: 20px; color: white;">
     <div class="footer-content">
       <div class="footer-logo">
         <a href="https://www.wustl.edu/" target="_blank" rel="noopener noreferrer">
           <img src="{{ '/images/WashU_logo.png' | relative_url }}" alt="WashU Logo" style="height: 120px; max-width: 250px;">
         </a>
       </div>
-      <div class="footer-logo">
+      <div class="footer-logo" >
         <a href="https://siteman.wustl.edu/" target="_blank" rel="noopener noreferrer">
           <img src="{{ '/images/siteman_logo.png' | relative_url }}" alt="Siteman Logo" style="height: 75px; max-width: 200px;">
         </a>
@@ -197,4 +206,5 @@
       nav.classList.toggle('show');
     });
   </script>
-</
+</body>
+</html>
