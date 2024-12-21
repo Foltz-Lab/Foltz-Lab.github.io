@@ -22,7 +22,7 @@ navigation:                # accepts {file, title, url, icon, sidebaricon}
   - {file: "People.html", title: "People"}
   - {file: "research.html", title: "Research"}
   - {file: "publications.html", title: "Publications"}
- # - {file: "col.html", title: "Collaborations"}
+  - {file: "col.html", title: "Collaborations"}
   - {file: "social.html", title: "Social"}
 
   
