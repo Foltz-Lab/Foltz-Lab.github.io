@@ -23,7 +23,7 @@ navigation:                # accepts {file, title, url, icon, sidebaricon}
   - {file: "research.html", title: "Research"}
   - {file: "publications.html", title: "Publications"}
   - {file: "col.html", title: "Collaborations"}
-  - {file: "social.html", title: "social"}
+  - {file: "social.html", title: "Social"}
 
   
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
